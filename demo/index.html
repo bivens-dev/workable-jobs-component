@@ -9,21 +9,8 @@
   </style>
 </head>
 <body>
-  <div id="demo"></div>
+  <script type="module" src="../dist/src/ea-jobs.js"></script>
 
-  <script type="module">
-    import { html, render } from 'lit';
-    import '../dist/src/ea-jobs.js';
-
-    const title = 'Hello owc World!';
-    render(
-      html`
-        <ea-jobs .title=${title}>
-          some light-dom
-        </ea-jobs>
-      `,
-      document.querySelector('#demo')
-    );
-  </script>
+  <workable-widget account="554848"></workable-widget>
 </body>
 </html>

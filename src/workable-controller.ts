@@ -1,45 +1,39 @@
-// import {ReactiveControllerHost} from 'lit';
-// import {initialState, StatusRenderer, Task} from '@lit-labs/task';
-// import * as Names from './workable-api.js';
+import { StatusRenderer, Task } from "@lit-labs/task";
+import { ReactiveController, ReactiveControllerHost } from "lit";
+import { WorkableApiResponse, WorkableJobData } from "./types.js";
 
+export class WorkableController implements ReactiveController {
+  private host: ReactiveControllerHost;
 
-// export class WorkableController {
-//     host: ReactiveControllerHost;
+  private _workableAccountId: string
 
-//     value?: string[];
+  private _fetchDataTask!: Task<[string], Array<WorkableJobData>>;
 
-//     readonly kinds = Names.kinds;
+  constructor(host: ReactiveControllerHost, workableAccountId: string) {
+    this.host = host;
+    this._workableAccountId = workableAccountId;
+    host.addController(this);
+  }
 
-//     private task!: Task;
+  hostConnected() {
+    this._fetchDataTask = new Task<[string], Array<WorkableJobData>>(this.host, this.fetchJobsData, () => [this._workableAccountId]);
+  }
 
-//     private _kind: Names.Kind = '';
-  
-//     constructor(host: ReactiveControllerHost) {
-//       this.host = host;
-//       this.task = new Task<[Names.Kind], Names.Result>(host,
-//         async ([kind]: [Names.Kind]) => {
-//           if (!kind?.trim()) {
-//             return initialState;
-//           }
-//           try {
-//             const response = await fetch(`${Names.baseUrl}${kind}`);
-//             const data = await response.json();
-//             return data.results as Names.Result;
-//           } catch {
-//             throw new Error(`Failed to fetch "${kind}"`);
-//           }
-//         }, () => [this.kind]
-//       );
-//     }
-  
-//     set kind(value: Names.Kind) {
-//       this._kind = value;
-//       this.host.requestUpdate();
-//     }
+  // eslint-disable-next-line class-methods-use-this
+  async fetchJobsData(accountId: [string]){
+    try {
+      const response = await fetch(`https://apply.workable.com/api/v1/widget/accounts/${accountId}?origin=embed`, {
+        method: "GET"
+      });
 
-//     get kind() { return this._kind; }
-  
-//     render(renderFunctions: StatusRenderer<Names.Result>) {
-//       return this.task.render(renderFunctions);
-//     }
-//   }
+      const jobsData: WorkableApiResponse = await response.json();
+      return jobsData.jobs;
+    } catch (error) {
+      throw new Error("Unable to fetch data from Workable");
+    }
+  }
+
+  render(renderFunctions: StatusRenderer<Array<WorkableJobData>>) {
+    return this._fetchDataTask.render(renderFunctions);
+  }
+}

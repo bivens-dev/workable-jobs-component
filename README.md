@@ -5,17 +5,22 @@ This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) reco
 ## Installation
 
 ```bash
-npm i ea-jobs
+npm i workable-widget
 ```
 
 ## Usage
 
 ```html
 <script type="module">
-  import 'ea-jobs/ea-jobs.js';
+  import 'workable-widget/workable-widget.js';
 </script>
 
-<ea-jobs></ea-jobs>
+<workable-widget account-id="123456"></workable-widget>
+```
+
+**Note:** The widget will attempt to validate that you have supplied a valid account id by default. You can relax these checks somewhat by supplying an optional `relaxed-validation` attribute on the element like so
+```html
+<workable-widget account-id="123456" relaxed-validation></workable-widget>
 ```
 
 ## Linting and formatting

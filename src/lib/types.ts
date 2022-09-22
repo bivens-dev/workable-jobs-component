@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export interface WorkableJobData {
   title: string;
   shortcode: string;

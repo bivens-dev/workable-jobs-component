@@ -4,6 +4,8 @@ import { WorkableJobData } from './lib/types.js';
 import { defaultStyles } from './lib/widget-style.js';
 import { WorkableController } from './lib/workable-controller.js';
 
+import './lib/job-card.js';
+
 @customElement('workable-widget')
 export class WorkableJobsWidget extends LitElement {
   static styles = [defaultStyles];
@@ -25,6 +27,7 @@ export class WorkableJobsWidget extends LitElement {
       <div class="job">
         <a href="${job.url}" target="_blank" class="job-title">${job.title}</a>
         <span class="job-location">${job.city} ${job.country}</span>
+        <workable-job-card .job=${job}></workable-job-card>
       </div>
     `;
   }

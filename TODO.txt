@@ -1,0 +1,13 @@
+- Convert to a generic card format
+    - Create a job card component that takes in a single job and displays it
+- Limit the number of job openings initially shown to the user
+    - Create a property of Jobs on the overall component
+    - Create a property for number of jobs to show
+- Create a show more jobs button
+    - Create a button and make it so that every time you click the button it adds 10 to the value
+- Create 2 dropdowns based on country and experience level
+    - get all the values in the list for each of those two properties
+    - use that to populate the dropdowns 
+- Hook up the dropdown menus to filter the jobs shown.
+    - set up a click / select handler that maps over list of jobs to only find the matches
+    - put some code in the render method that uses that 

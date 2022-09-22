@@ -21,7 +21,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <script type="module" src="../dist/src/ea-jobs.js"></script>
-  <workable-widget account="554848"></workable-widget>
+  <script type="module" src="../dist/src/workable-widget.js"></script>
+  <workable-widget account-id="554848">
+    <!-- Pick this up via the slot and use it to initialze a generic org data structure so I can use whatever kind of org I want -->
+    <script type="json+ld">
+      {
+        "@type": "Organization",
+        "name": "Evidence Action",
+        "sameAs": "https://www.evidenceaction.org/",
+        "logo": "http://www.example.com/images/logo.png"
+      }
+    </script>
+  </workable-widget>
 </body>
 </html>

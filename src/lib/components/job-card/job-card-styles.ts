@@ -1,6 +1,6 @@
 import { css } from 'lit';
 
-export const defaultStyles = css`
+export const styles = css`
   :host {
     display: block;
     color: var(--workable-widget-font-color, #000);

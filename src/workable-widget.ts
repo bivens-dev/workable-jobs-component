@@ -1,6 +1,6 @@
 import { customElement } from 'lit/decorators.js';
-import { styles } from './lib2/styles.css.js';
-import { WorkableWidgetImpl } from './lib2/workable-widget.js';
+import { styles } from './lib/styles.css.js';
+import { WorkableWidgetImpl } from './lib/workable-widget.js';
 
 /**
  * A responsive and accessable top navigation bar based on the article at:

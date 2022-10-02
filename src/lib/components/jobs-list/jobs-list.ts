@@ -33,7 +33,6 @@ export class JobsList extends LitElement {
     const visibleJobs = this.getVisibleJobs();
 
     return html`
-      <h1>Open Positions</h1>
       ${this.renderLocationDropdown()}
       <ul id="job-listings">
         ${visibleJobs.map(
@@ -72,19 +71,21 @@ export class JobsList extends LitElement {
     const locations = this.getAvailableLocations();
 
     return html`
-      <label for="location-select">Choose a location:</label>
+      <div id="location-selection-row">
+        <label for="location-select">Select a location:</label>
 
-      <select
-        name="locations"
-        id="location-select"
-        @change="${this._onLocationChange}"
-      >
-        <option value="">--Please choose an option--</option>
-        ${map(
-          locations,
-          location => html`<option .value=${location}>${location}</option>`
-        )}
-      </select>
+        <select
+          name="locations"
+          id="location-select"
+          @change="${this._onLocationChange}"
+        >
+          <option value="">All Locations</option>
+          ${map(
+            locations,
+            location => html`<option .value=${location}>${location}</option>`
+          )}
+        </select>
+      </div>
     `;
   }
 

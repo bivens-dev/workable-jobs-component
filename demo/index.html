@@ -2,8 +2,22 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
+  <link rel='dns-prefetch' href='//use.typekit.net' />
+  <link rel="preload" as="font" href="https://use.typekit.net/af/4c41f0/00000000000000003b9af304/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3" crossorigin />
   <style>
+    @font-face {
+    font-family: t-star mono;
+    src: url(fonts/tstar-mono.woff2)format("woff2"),url(fonts/tstar-mono.woff)format("woff"),url(fonts/tstar-mono.ttf)format("truetype");
+    font-display: swap
+    }
+
     body {
+      background: #fff;
+    }
+
+    #presentation-container {
+      max-width: 1050px;
+      margin: auto;
       background: #fafafa;
     }
 
@@ -19,19 +33,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+  <link rel='stylesheet' id='typekit-prensa-css' href='https://use.typekit.net/vvm2xfy.css?ver=6.0.2' media='all' />
+  <link rel='stylesheet' id='typekit-prensa-css' href='https://use.typekit.net/vvm2xfy.css?ver=6.0.2' media='all' />
+
 </head>
 <body>
   <script type="module" src="../dist/src/workable-widget.js"></script>
-  <workable-widget account-id="554848">
-    <!-- Pick this up via the slot and use it to initialze a generic org data structure so I can use whatever kind of org I want -->
-    <script type="json+ld">
-      {
-        "@type": "Organization",
-        "name": "Evidence Action",
-        "sameAs": "https://www.evidenceaction.org/",
-        "logo": "http://www.example.com/images/logo.png"
-      }
-    </script>
-  </workable-widget>
+  <div id="presentation-container">
+    <workable-widget account-id="554848">
+      <!-- Pick this up via the slot and use it to initialze a generic org data structure so I can use whatever kind of org I want -->
+      <script type="json+ld">
+        {
+          "@type": "Organization",
+          "name": "Evidence Action",
+          "sameAs": "https://www.evidenceaction.org/",
+          "logo": "http://www.example.com/images/logo.png"
+        }
+      </script>
+    </workable-widget>
+  </div>
 </body>
 </html>

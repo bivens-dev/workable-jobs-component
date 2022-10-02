@@ -21,7 +21,7 @@ export class JobCard extends LitElement {
           >${this.jobData.title}</a
         >
         <span class="job-location"
-          >${this.jobData.city} ${this.jobData.country}</span
+          >${this.jobData.city}, ${this.jobData.country}</span
         >
       </div>
     `;

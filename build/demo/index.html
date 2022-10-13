@@ -81,8 +81,6 @@
       });
     }
     var polyfills = [];
-    // Temporary Hack
-    polyfills.push(loadScript('./../polyfills/regenerator-runtime.61d4e435f5b81f2e452f58d03b45a67e.js'));
     if (!('noModule' in HTMLScriptElement.prototype)) {
       polyfills.push(loadScript('./../polyfills/regenerator-runtime.61d4e435f5b81f2e452f58d03b45a67e.js'));
     }

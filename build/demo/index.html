@@ -35,7 +35,7 @@
   <link rel="stylesheet" id="typekit-prensa-css" href="https://use.typekit.net/vvm2xfy.css?ver=6.0.2" media="all">
 
 
-<link rel="preload" href="../workable-widget-838dc781.js" as="script" crossorigin="anonymous" />
+<link rel="preload" href="../workable-widget-66769488.js" as="script" crossorigin="anonymous" />
 </head>
 <body>
   
@@ -81,6 +81,8 @@
       });
     }
     var polyfills = [];
+    // Temporary Hack
+    polyfills.push(loadScript('./../polyfills/regenerator-runtime.61d4e435f5b81f2e452f58d03b45a67e.js'));
     if (!('noModule' in HTMLScriptElement.prototype)) {
       polyfills.push(loadScript('./../polyfills/regenerator-runtime.61d4e435f5b81f2e452f58d03b45a67e.js'));
     }
@@ -101,9 +103,9 @@
     }
     function loadFiles() {
       if (!!Array.prototype.flat) {
-        System.import('../legacy-workable-widget-03077f60.js');
+        System.import('../legacy-workable-widget-3a5b5c41.js');
       } else {
-        loadScript('../workable-widget-838dc781.js', 'module', []);
+        loadScript('../workable-widget-66769488.js', 'module', []);
       }
     }
     if (polyfills.length) {

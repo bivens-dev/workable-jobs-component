@@ -29,6 +29,6 @@ export const styles = css`
   }
 
   .job-location {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
   }
 `;
